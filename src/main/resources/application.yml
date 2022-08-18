@@ -1,0 +1,29 @@
+server:
+# ????HTTP??
+    port:8097
+spring:
+    # ?????
+    datasource:
+        master:
+            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-1?useSSL=false&serverTimezone=UTC
+            username: root
+            password: root
+            driver-class-name: com.mysql.cj.jdbc.Driver
+        salve1:
+            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-2?useSSL=false&serverTimezone=UTC
+            username: root
+            password: root
+            driver-class-name: com.mysql.cj.jdbc.Driver
+# MyBatis??
+mybatis:
+    # ???????
+    # (?? typeAliasesPackage??????resultType?????resultType="com.liyh.entity.User"?
+    # ?????????,????????????resultType="User"??)
+    type-aliases-package: com.liyijun.entity
+    # ??mapper?????????mapper.xml????
+    mapper-locations:classpath*: mapper/**/*Mapper.xml
+    # ??????
+    # ??????user_name
+    #??????userName
+    configuration:
+        map-underscore-to-camel-case: true
