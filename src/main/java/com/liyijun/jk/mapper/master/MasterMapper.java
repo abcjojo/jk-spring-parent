@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface MasterMapper {
 
-//    @Select("select * from sys_user where user_id = #{userId}")
+    @Select("select * from sys_user where user_id = #{userId}")
     SysUser getMasterInfo(@Param("userId") String userId);
 
 }

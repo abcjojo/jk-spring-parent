@@ -3,8 +3,11 @@ package com.liyijun.jk.controller;
 
 import com.liyijun.jk.entity.SysUser;
 import com.liyijun.jk.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
     @Autowired
     UserService userService;
@@ -22,9 +26,10 @@ public class UserController {
      * @param userId
      * @return
      */
-    @RequestMapping("/getMasterInfo")
-    public SysUser getMasterInfo(String userId) {
+    @GetMapping("/getMasterInfo")
+    public SysUser getMasterInfo(@RequestParam String userId) {
         SysUser user = userService.getMasterInfo(userId);
+        log.info("master user : {}", user);
         return user;
     }
 
@@ -34,9 +39,10 @@ public class UserController {
      * @param userId
      * @return
      */
-    @RequestMapping("/getTestInfo")
-    public SysUser getTestInfo(String userId) {
+    @GetMapping("/getSlaveInfo")
+    public SysUser getTestInfo(@RequestParam String userId) {
         SysUser user = userService.getTestInfo(userId);
+        log.info("slave user : {}", user);
         return user;
     }
 

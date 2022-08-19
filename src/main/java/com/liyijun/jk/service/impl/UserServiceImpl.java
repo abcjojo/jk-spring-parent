@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private MasterMapper masterMapper;
 
     @Resource
-    private Slave1Mapper testMapper;
+    private Slave1Mapper slave1Mapper;
 
     @Override
     public SysUser getMasterInfo(String userId) {
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public SysUser getTestInfo(String userId) {
-        return testMapper.getTestInfo(userId);
+        return slave1Mapper.getTestInfo(userId);
     }
 
 }
