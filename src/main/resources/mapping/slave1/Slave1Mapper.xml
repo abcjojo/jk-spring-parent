@@ -10,7 +10,7 @@
         <id property="nickName" column="nick_name"/>
     </resultMap>
 
-    <select id="getTestInfo" resultType="com.liyijun.jk.entity.SysUser">
+    <select id="getTestInfo1" resultType="com.liyijun.jk.entity.SysUser">
         select * from sys_user where user_id = #{userId}
     </select>
 

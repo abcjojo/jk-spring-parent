@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -25,10 +26,25 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = {"com.liyijun.jk.mapper.slave1"}, sqlSessionFactoryRef = "slave1_SqlSessionFactory")
 public class Slave1_DataSourceConfig {
 
+    @Value("${spring.datasource.druid.salve1.jdbc-url}")
+    private String url;
+    @Value("${spring.datasource.druid.salve1.username}")
+    private String username;
+    @Value("${spring.datasource.druid.salve1.password}")
+    private String password;
+    @Value("${spring.datasource.druid.salve1.driver-class-name}")
+    private String driverClassName;
+
+
     @Bean(value = "slave1_DataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.salve1")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.salve1")
     public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
+        return DataSourceBuilder.create()
+//                .url(url)
+//                .driverClassName(driverClassName)
+//                .username(username)
+//                .password(password)
+                .build();
     }
 
     @Bean("slave1_SqlSessionFactory")

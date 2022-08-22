@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -25,14 +27,27 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = {"com.liyijun.jk.mapper.master"}, sqlSessionFactoryRef = "masterSqlSessionFactory")
 public class MasterDataSourceConfig {
 
+    @Value("${spring.datasource.druid.master.jdbc-url}")
+    private String url;
+    @Value("${spring.datasource.druid.master.username}")
+    private String username;
+    @Value("${spring.datasource.druid.master.password}")
+    private String password;
+    @Value("${spring.datasource.druid.master.driver-class-name}")
+    private String driverClassName;
 
     /**
     * 指定数据源
     */
     @Bean(name = "masterDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.master")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.master")
     public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
+        return DataSourceBuilder.create()
+//                .url(url)
+//                .driverClassName(driverClassName)
+//                .username(username)
+//                .password(password)
+                .build();
     }
 
     /** 配置事务管理器， 不配置事务不起作用 */

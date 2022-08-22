@@ -1,33 +1,33 @@
-server:
-# ????HTTP??
-    port: 8097
-spring:
-    # ?????
-    datasource:
-        type: com.alibaba.druid.pool.DruidDataSource
-        publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALhSO5JUaZ1PCCaY//6DQhLxvgR7aMlqWVriG5honXPeCeyWvYkeU3GalPIMgwf6Hqq2K1XWZZdPP78ID5+yEJcCAwEAAQ==
-        master:
-            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-1?useSSL=false&serverTimezone=UTC
-            username: root
-            password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
-            driver-class-name: com.mysql.cj.jdbc.Driver
-        salve1:
-            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-2?useSSL=false&serverTimezone=UTC
-            username: root
-            password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
-            driver-class-name: com.mysql.cj.jdbc.Driver
-# MyBatis??
-mybatis:
-    # ???????
-    # (?? typeAliasesPackage??????resultType?????resultType="com.liyh.entity.User"?
-    # ?????????,????????????resultType="User"??)
-    type-aliases-package: com.liyijun.jk.entity
-    # ??mapper?????????mapper.xml????
-    mapper-locations: classpath*:mapping/**/*Mapper.xml
-    # ??????
-    configuration:
-        map-underscore-to-camel-case: true
-
-jasypt:
-    encryptor:
-        password: ENCRYPT-LYJ-0808
+#server:
+## ????HTTP??
+#    port: 8097
+#spring:
+#    # ?????
+#    datasource:
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALhSO5JUaZ1PCCaY//6DQhLxvgR7aMlqWVriG5honXPeCeyWvYkeU3GalPIMgwf6Hqq2K1XWZZdPP78ID5+yEJcCAwEAAQ==
+#        master:
+#            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-1?useSSL=false&serverTimezone=UTC
+#            username: root
+#            password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
+#            driver-class-name: com.mysql.cj.jdbc.Driver
+#        salve1:
+#            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-2?useSSL=false&serverTimezone=UTC
+#            username: root
+#            password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
+#            driver-class-name: com.mysql.cj.jdbc.Driver
+## MyBatis??
+#mybatis:
+#    # ???????
+#    # (?? typeAliasesPackage??????resultType?????resultType="com.liyh.entity.User"?
+#    # ?????????,????????????resultType="User"??)
+#    type-aliases-package: com.liyijun.jk.entity
+#    # ??mapper?????????mapper.xml????
+#    mapper-locations: classpath*:mapping/**/*Mapper.xml
+#    # ??????
+#    configuration:
+#        map-underscore-to-camel-case: true
+#
+#jasypt:
+#    encryptor:
+#        password: ENCRYPT-LYJ-0808
