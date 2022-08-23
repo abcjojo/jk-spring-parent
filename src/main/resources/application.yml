@@ -1,33 +1,39 @@
-#server:
-## ????HTTP??
-#    port: 8097
-#spring:
-#    # ?????
-#    datasource:
-#        type: com.alibaba.druid.pool.DruidDataSource
-#        publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALhSO5JUaZ1PCCaY//6DQhLxvgR7aMlqWVriG5honXPeCeyWvYkeU3GalPIMgwf6Hqq2K1XWZZdPP78ID5+yEJcCAwEAAQ==
-#        master:
-#            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-1?useSSL=false&serverTimezone=UTC
-#            username: root
-#            password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
-#            driver-class-name: com.mysql.cj.jdbc.Driver
-#        salve1:
-#            jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-2?useSSL=false&serverTimezone=UTC
-#            username: root
-#            password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
-#            driver-class-name: com.mysql.cj.jdbc.Driver
-## MyBatis??
-#mybatis:
-#    # ???????
-#    # (?? typeAliasesPackage??????resultType?????resultType="com.liyh.entity.User"?
-#    # ?????????,????????????resultType="User"??)
-#    type-aliases-package: com.liyijun.jk.entity
-#    # ??mapper?????????mapper.xml????
-#    mapper-locations: classpath*:mapping/**/*Mapper.xml
-#    # ??????
-#    configuration:
-#        map-underscore-to-camel-case: true
-#
-#jasypt:
-#    encryptor:
-#        password: ENCRYPT-LYJ-0808
+server:
+  port: 8097
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: conn,config,stat,slf4j
+      initial-size: 5
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
+      master:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-1?useSSL=false&serverTimezone=UTC
+        password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
+        username: root
+      max-active: 5
+      min-idle: 5
+      salve1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-2?useSSL=false&serverTimezone=UTC
+        password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
+        username: root
+
+rocketmq:
+  name-server: localhost:9876
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mapping/**/*Mapper.xml
+  type-aliases-package: com.liyijun.jk.entity
+
+jasypt:
+  encryptor:
+    password: ENCRYPT-LYJ-0808
+
+
+public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKl/E4fkuiwWu8pOw+nCTIAdjOT+LGg1EBgv641ICOOur4weK0m7RqKaPd87aEhHHtwK+rtt5xGnz9gCY+OeJBcCAwEAAQ==
