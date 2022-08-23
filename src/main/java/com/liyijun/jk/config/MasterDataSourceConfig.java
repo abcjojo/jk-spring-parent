@@ -43,16 +43,12 @@ public class MasterDataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.druid.master")
     public DataSource dataSource() {
         return DataSourceBuilder.create()
-//                .url(url)
-//                .driverClassName(driverClassName)
-//                .username(username)
-//                .password(password)
                 .build();
     }
 
     /** 配置事务管理器， 不配置事务不起作用 */
     @Bean
-    public PlatformTransactionManager transactionManager() {
+    public PlatformTransactionManager masterTxManager() {
         return new DataSourceTransactionManager(this.dataSource());
     }
 

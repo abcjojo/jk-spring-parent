@@ -46,4 +46,25 @@ public class UserController {
         return user;
     }
 
+    /**
+     * 事务测试接口
+     *
+     * @return
+     */
+    @GetMapping("/txTest2")
+    public void txTest2() {
+        userService.insertUser2();
+    }
+
+    /**
+     * 事务测试接口
+     *
+     * @return
+     */
+    @GetMapping("/txTest1")
+    public void txTest1() {
+        userService.insertUser1();
+    }
+
+
 }

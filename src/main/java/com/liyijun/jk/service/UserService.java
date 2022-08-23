@@ -14,4 +14,10 @@ public interface UserService {
 
     SysUser getTestInfo(String userId);
 
+
+    void txTest();
+
+    public void insertUser2() ;
+
+    public void insertUser1();
 }

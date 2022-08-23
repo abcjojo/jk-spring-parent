@@ -39,12 +39,7 @@ public class Slave1_DataSourceConfig {
     @Bean(value = "slave1_DataSource")
     @ConfigurationProperties(prefix = "spring.datasource.druid.salve1")
     public DataSource dataSource() {
-        return DataSourceBuilder.create()
-//                .url(url)
-//                .driverClassName(driverClassName)
-//                .username(username)
-//                .password(password)
-                .build();
+        return DataSourceBuilder.create().build();
     }
 
     @Bean("slave1_SqlSessionFactory")

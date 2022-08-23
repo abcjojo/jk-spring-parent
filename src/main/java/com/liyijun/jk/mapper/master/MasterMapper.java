@@ -1,9 +1,7 @@
 package com.liyijun.jk.mapper.master;
 
 import com.liyijun.jk.entity.SysUser;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 /**
  * mapper接口
@@ -16,4 +14,12 @@ public interface MasterMapper {
     @Select("select * from sys_user where user_id = #{userId}")
     SysUser getMasterInfo(@Param("userId") String userId);
 
+    @Select("select count(*) from sys_user")
+    int selectCount();
+
+    @Options(useGeneratedKeys=true,keyProperty="userId")
+    @Insert("insert into sys_user" +
+            " (user_name,nick_name)" +
+            " values(#{userName},#{nickName})")
+    int insert(SysUser sysUser);
 }

@@ -1,6 +1,8 @@
 package com.liyijun.jk.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户对象 sys_user
@@ -8,6 +10,7 @@ import lombok.Data;
  * @author liyh
  */
 @Data
+@NoArgsConstructor
 public class SysUser {
 
     /**
@@ -25,4 +28,8 @@ public class SysUser {
      */
     private String nickName;
 
+    public SysUser(String userName, String nickName) {
+        this.userName = userName;
+        this.nickName = nickName;
+    }
 }
