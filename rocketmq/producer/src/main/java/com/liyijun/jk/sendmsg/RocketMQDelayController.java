@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+
 /**
  * @Description:
  * @author: liyijun
@@ -12,21 +14,20 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class RocketMQBroadController {
+public class RocketMQDelayController {
 
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
 
-    @GetMapping("/broadMsg")
-    public String broadMsg() {
-        for (int i = 0; i < 10; i++) {
+    @GetMapping("/delayMsg")
+    public String delayMsg() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("orderNumber", "110119110");
+        map.put("userName", 2310);
+        rocketMQTemplate.syncSend("delay-topic", )
 
-            /**
-            *    发送消息后，消费者111 消费消息  5 9 0 1 8 4， 消费者222消费消息：7 3 2 6
-            *
-            */
-            rocketMQTemplate.convertAndSend("broad-topic", "message---" + i);
-        }
+
         return "okk---1212";
     }
 }
+    
