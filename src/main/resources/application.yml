@@ -21,6 +21,12 @@ spring:
         jdbc-url: jdbc:mysql://localhost:3306/jk-mysql-2?useSSL=false&serverTimezone=UTC
         password: ENC(Z+Hc6hmSgs7Bg7q8Wfowpg==)
         username: root
+  cache: redis
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
+    timeout: 5000
 
 rocketmq:
   name-server: localhost:9876

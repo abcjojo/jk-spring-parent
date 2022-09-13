@@ -1,6 +1,7 @@
 package com.liyijun.jk.service;
 
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.liyijun.jk.entity.SysUser;
 
 /**

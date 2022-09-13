@@ -1,5 +1,6 @@
 package com.liyijun.jk.mapper.master;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.liyijun.jk.entity.SysUser;
 import org.apache.ibatis.annotations.*;
 
@@ -9,7 +10,7 @@ import org.apache.ibatis.annotations.*;
  * @Author: liyh
  */
 @Mapper
-public interface MasterMapper {
+public interface MasterMapper extends BaseMapper<SysUser> {
 
     @Select("select * from sys_user where user_id = #{userId}")
     SysUser getMasterInfo(@Param("userId") String userId);
