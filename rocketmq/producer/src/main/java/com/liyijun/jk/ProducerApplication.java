@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 
-/**  blog: https://blog.csdn.net/qq_64872360/article/details/126432287
+/**
+ *  rocketmq消息demo学习blog：https://blog.csdn.net/qq_26383975/article/details/125368252
+ *  rocketmq windows本地启动blog: https://blog.csdn.net/qq_64872360/article/details/126432287
  *
  *   rocketmq 本地服务启动:
  *      进入安装目录bin目录
