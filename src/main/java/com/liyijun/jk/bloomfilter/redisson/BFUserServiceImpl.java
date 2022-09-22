@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liyijun.jk.entity.SysUser;
 import com.liyijun.jk.mapper.master.MasterMapper;
 import com.liyijun.jk.service.SysUserService;
-import com.liyijun.jk.service.UserService;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RedissonClient;
 import org.redisson.client.codec.StringCodec;
@@ -26,7 +25,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 @Service
-public class UserServiceImpl extends ServiceImpl<MasterMapper, SysUser> implements SysUserService {
+public class BFUserServiceImpl extends ServiceImpl<MasterMapper, SysUser> implements SysUserService {
 
     // 预期插入数量
     static long expectedInsertions = 200L;
