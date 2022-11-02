@@ -1,4 +1,4 @@
-package 面试题;
+package 面试题.question;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package 面试题;
+package 面试题.question;
 
 /**
  *  力扣14：最长公共前缀

@@ -1,4 +1,4 @@
-package 面试题;
+package 面试题.question;
 
 import jdk.nashorn.internal.ir.ReturnNode;
 import org.aspectj.weaver.ast.Var;
